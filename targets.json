@@ -2381,6 +2381,20 @@
             }
         }
     },
+    "cyclone": {
+        "name": "Cyclone",
+        "tx_433": {
+            "oled": {
+                "product_name": "Cyclone OLED 433MHz TX",
+                "lua_name": "Cyclone OLED 433MHz",
+                "layout_file": "Cyclone OLED 433.json",
+                "upload_methods": ["uart", "wifi"],
+                "min_version": "3.3.0",
+                "platform": "esp32",
+                "firmware": "Unified_ESP32_900_TX"
+            }
+        }
+    },
     "holybro": {
         "name": "Holybro",
         "rx_dual": {
