@@ -2410,6 +2410,20 @@
             }
         }
     },
+    "beastfpv": {
+        "name": "Beastfpv",
+        "tx_750": {
+            "oled": {
+                "product_name": "Beastfpv OLED 750MHz TX",
+                "lua_name": "Beastfpv OLED 750MHz",
+                "layout_file": "Beastfpv OLED 750.json",
+                "upload_methods": ["uart", "wifi"],
+                "min_version": "3.3.0",
+                "platform": "esp32",
+                "firmware": "Unified_ESP32_900_TX"
+            }
+        }
+    },
     "holybro": {
         "name": "Holybro",
         "rx_dual": {
