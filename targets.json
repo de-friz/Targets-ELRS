@@ -2410,6 +2410,20 @@
             }
         }
     },
+    "belinrc": {
+        "name": "BelinRC",
+        "rx_900": {
+            "mini": {
+                "product_name": "BelinRC 390MHz RX",
+                "lua_name": "BelinRC 390 RX",
+                "layout_file": "BelinRC_390MHz_RX.json",
+                "upload_methods": ["uart", "wifi", "betaflight"],
+                "min_version": "3.3.1",
+                "platform": "esp8285",
+                "firmware": "Unified_ESP8285_900_RX"
+            }
+        }
+    },
     "beastfpv": {
         "name": "Beastfpv",
         "tx_900": {
