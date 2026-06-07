@@ -1219,7 +1219,7 @@
             "plain": {
                 "product_name": "FlyFish 433M_V1.0",
                 "lua_name": "ELRS 900RX",
-                "layout_file": "Generic 900.json",
+                "layout_file": "flyfish 433.json",
                 "upload_methods": ["uart", "wifi", "betaflight"],
                 "min_version": "3.0.0",
                 "platform": "esp8285",
