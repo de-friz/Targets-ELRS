@@ -2398,7 +2398,7 @@
     },
     "cyclone": {
         "name": "Cyclone",
-        "tx_433": {
+        "tx_900": {
             "oled": {
                 "product_name": "Cyclone OLED 433MHz TX",
                 "lua_name": "Cyclone OLED 433MHz",
@@ -2412,7 +2412,7 @@
     },
     "beastfpv": {
         "name": "Beastfpv",
-        "tx_750": {
+        "tx_900": {
             "oled": {
                 "product_name": "Beastfpv OLED 750MHz TX",
                 "lua_name": "Beastfpv OLED 750MHz",
