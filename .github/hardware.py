@@ -7,6 +7,7 @@ class FieldType(Enum):
     BOOL = 2
     FLOAT = 3
     ARRAY = 4
+    STRING = 5
     PIN = 100   # marker
     INPUT = 101
     OUTPUT = 102
@@ -107,10 +108,35 @@ hardware_fields = {
     "gsensor_stk8xxx": FieldType.BOOL,
     "thermal_lm75a": FieldType.BOOL,
     "pwm_outputs": FieldType.ARRAY,
+    "pwm_out_only": FieldType.BOOL,
     "vbat": FieldType.ADC,
+    "vbat_cal_min": FieldType.INT,
+    "vbat_cal_max": FieldType.INT,
+    "vbat_noreading": FieldType.INT,
     "vbat_offset": FieldType.INT,
     "vbat_scale": FieldType.INT,
     "vbat_atten": FieldType.INT,
+    "vsrc1": FieldType.ADC,
+    "vsrc1_cal_min": FieldType.INT,
+    "vsrc1_cal_max": FieldType.INT,
+    "vsrc1_noreading": FieldType.INT,
+    "vsrc1_offset": FieldType.INT,
+    "vsrc1_scale": FieldType.INT,
+    "vsrc1_atten": FieldType.INT,
+    "vsrc2": FieldType.ADC,
+    "vsrc2_cal_min": FieldType.INT,
+    "vsrc2_cal_max": FieldType.INT,
+    "vsrc2_noreading": FieldType.INT,
+    "vsrc2_offset": FieldType.INT,
+    "vsrc2_scale": FieldType.INT,
+    "vsrc2_atten": FieldType.INT,
+    "vsrc3": FieldType.ADC,
+    "vsrc3_cal_min": FieldType.INT,
+    "vsrc3_cal_max": FieldType.INT,
+    "vsrc3_noreading": FieldType.INT,
+    "vsrc3_offset": FieldType.INT,
+    "vsrc3_scale": FieldType.INT,
+    "vsrc3_atten": FieldType.INT,
     "vtx_amp_pwm": FieldType.OUTPUT,
     "vtx_amp_vpd": FieldType.ADC,
     "vtx_amp_vref": FieldType.OUTPUT,
@@ -123,11 +149,15 @@ hardware_fields = {
     "vtx_amp_pwm_25mW": FieldType.ARRAY,
     "vtx_amp_pwm_100mW": FieldType.ARRAY,
     "ir_transponder": FieldType.OUTPUT,
+    "spi_sck": FieldType.OUTPUT,
+    "spi_miso": FieldType.INPUT,
+    "spi_mosi": FieldType.OUTPUT,
+    "gyro_type": FieldType.INT,
     "gyro_nss": FieldType.OUTPUT,
-    "gyro_miso": FieldType.INPUT,
-    "gyro_mosi": FieldType.OUTPUT,
-    "gyro_sck": FieldType.OUTPUT,
     "gyro_int": FieldType.INPUT,
+    "gyro_scl": FieldType.OUTPUT,
+    "gyro_sda": FieldType.BIDIR,
+    "gyro_orientation_names": FieldType.STRING,
     "adc_a1": FieldType.ADC,
     "adc_a2": FieldType.ADC
 }
@@ -146,12 +176,18 @@ field_groups = {
         [["joystick", "joystick_values"], [], []],
         [["five_way1", "five_way2", "five_way3"], [], []],
         [["misc_fan_pwm", "misc_fan_speeds"], [], []],
-        [["vbat", "vbat_offset", "vbat_scale"], [], []],
+        [["pwm_out_only"], ["pwm_outputs"], []],
+        [["vbat", "vbat_cal_min", "vbat_cal_max", "vbat_offset", "vbat_scale"], [], []],
+        [["vsrc1", "vsrc1_cal_min", "vsrc1_cal_max", "vsrc1_offset", "vsrc1_scale"], [], []],
+        [["vsrc2", "vsrc2_cal_min", "vsrc2_cal_max", "vsrc2_offset", "vsrc2_scale"], [], []],
+        [["vsrc3", "vsrc3_cal_min", "vsrc3_cal_max", "vsrc3_offset", "vsrc3_scale"], [], []],
         [["power_pdet", "power_pdet_intercept", "power_pdet_slope"], [], []],
         [["screen_sda"], ["screen_sck", "screen_type"], []],
         [["screen_cs", "screen_dc", "screen_mosi"], ["screen_type", "screen_sck", "screen_rst"], []],
         [["vtx_amp_pwm", "vtx_amp_vpd", "vtx_amp_vref", "vtx_nss", "vtx_miso", "vtx_mosi", "vtx_sck", "vtx_amp_vpd_25mW", "vtx_amp_vpd_100mW"], [], []],
-        [["gyro_nss", "gyro_miso", "gyro_mosi", "gyro_sck", "gyro_int"], [], []]
+        [["spi_miso", "spi_mosi", "spi_sck"], [], []],
+        [["gyro_nss"], ["gyro_type", "spi_miso", "spi_mosi", "spi_sck"], []],
+        [["gyro_scl", "gyro_sda"], ["gyro_type"], []]
     ],
     "2400": [
         [["radio_dio1", "radio_miso", "radio_mosi", "radio_sck", "radio_nss"], [], ["radio_rst", "pwm_outputs"]],
